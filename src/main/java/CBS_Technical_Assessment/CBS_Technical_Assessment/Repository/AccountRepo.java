@@ -1,5 +1,6 @@
 package CBS_Technical_Assessment.CBS_Technical_Assessment.Repository;
 
+import CBS_Technical_Assessment.CBS_Technical_Assessment.DTO.CreateDepositDTO;
 import CBS_Technical_Assessment.CBS_Technical_Assessment.Entity.AccountEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,7 +15,6 @@ public interface AccountRepo extends JpaRepository<AccountEntity, Long> {
   Optional<AccountEntity> findByCifId(String cifId);
 
   //@Query("SELECT a.accountNumber FROM AccountEntity a") //where a stands for the first letter in AccountEntity
-  AccountEntity findByAccountNumber(String accountNumber);
+  Optional<AccountEntity> findByAccountNumber(String accountNumber);
 
-  //  List<AccountEntity> getAccountsByCifId(String cifId);
 }

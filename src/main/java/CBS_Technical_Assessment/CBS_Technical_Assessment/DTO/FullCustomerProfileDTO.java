@@ -1,19 +1,15 @@
-package CBS_Technical_Assessment.CBS_Technical_Assessment.Entity;
+package CBS_Technical_Assessment.CBS_Technical_Assessment.DTO;
 
-import jakarta.persistence.*;
+import CBS_Technical_Assessment.CBS_Technical_Assessment.Entity.DepositedFundsEntity;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.OneToMany;
 import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 @Data
-@Entity()
-@Table(name = "account_table")
-public class AccountEntity {
-
-    @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private Long id;
+public class FullCustomerProfileDTO {
     private String bvn;
     private String title;
     private String firstName;
@@ -31,9 +27,6 @@ public class AccountEntity {
     private String accountNumber;
     private String cifId;
 
-    @OneToMany(cascade = CascadeType.ALL)
     private List<DepositedFundsEntity> recentDeposits;
     private String recentWithdrawals;
 }
-
-
